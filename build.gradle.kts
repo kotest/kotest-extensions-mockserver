@@ -32,8 +32,8 @@ allprojects {
 
    dependencies {
       implementation(Libs.Kotest.Api)
-      implementation(Libs.Coroutines.coreJvm)
-      api(Libs.TestContainers.testcontainers)
+      api(Libs.MockServer.netty)
+      api(Libs.MockServer.javaClient)
       testImplementation(Libs.Kotest.Assertions)
       testImplementation(Libs.Kotest.Junit5)
    }

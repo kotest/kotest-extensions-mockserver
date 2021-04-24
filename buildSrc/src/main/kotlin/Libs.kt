@@ -10,9 +10,10 @@ object Libs {
       const val Api = "io.kotest:kotest-framework-api:$version"
    }
 
-   object TestContainers {
-      private const val version = "1.15.2"
-      const val testcontainers = "org.testcontainers:testcontainers:$version"
+   object MockServer {
+      private const val version = "5.11.2"
+      const val netty = "org.mock-server:mockserver-netty:$version"
+      const val javaClient = "org.mock-server:mockserver-client-java:$version"
    }
 
    object Coroutines {
