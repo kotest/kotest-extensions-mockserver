@@ -14,6 +14,9 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ## Changelog
 
+### 1.1.0
+* [Kotest #2825](https://github.com/kotest/kotest/issues/2825) Change `port` parameter to be `vararg val` instead of `val` 
+
 ### 1.0.1
 
 * Compile with JDK8

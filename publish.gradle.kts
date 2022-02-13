@@ -79,6 +79,12 @@ publishing {
             name.set("Stephen Samuel")
             email.set("sam@sksamuel.com")
           }
+
+          developer {
+            id.set("LeoColman")
+            name.set("Leonardo Colman")
+            email.set("dev@leonardo.colman.com.br")
+          }
         }
       }
 
