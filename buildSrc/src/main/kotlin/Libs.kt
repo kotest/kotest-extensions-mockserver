@@ -21,4 +21,9 @@ object Libs {
       const val coreCommon = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
       const val coreJvm = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$version"
    }
+
+  object Fuel {
+    private const val version = "2.3.1"
+    const val core = "com.github.kittinunf.fuel:fuel:$version"
+  }
 }

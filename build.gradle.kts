@@ -36,6 +36,7 @@ allprojects {
       api(Libs.MockServer.javaClient)
       testImplementation(Libs.Kotest.Assertions)
       testImplementation(Libs.Kotest.Junit5)
+      testImplementation(Libs.Fuel.core)
    }
 
    tasks.named<Test>("test") {

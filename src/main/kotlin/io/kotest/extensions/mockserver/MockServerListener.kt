@@ -5,21 +5,27 @@ import io.kotest.core.spec.Spec
 import org.mockserver.integration.ClientAndServer
 import org.mockserver.integration.ClientAndServer.startClientAndServer
 
-class MockServerListener(private val port: Int) : TestListener, AutoCloseable {
+/**
+ * @param port A mockserver will be launched for each [port]. If empty, a random port
+ * will be used (found via [mockServer])
+ */
+class MockServerListener(
+  private vararg val port: Int = intArrayOf()
+) : TestListener, AutoCloseable {
 
    // this has to be a var because MockServer starts the server as soon as you instantiate the instance :(
-   var mockServer: ClientAndServer? = null
+   lateinit var mockServer: ClientAndServer
 
    override suspend fun beforeSpec(spec: Spec) {
       super.beforeSpec(spec)
-      mockServer = startClientAndServer(port)
+      mockServer = startClientAndServer(*port.toTypedArray())
    }
 
    override suspend fun afterSpec(spec: Spec) {
-      mockServer?.stop()
+      mockServer.stop()
    }
 
    override fun close() {
-      mockServer?.stop()
+      mockServer.stop()
    }
 }
