@@ -11,19 +11,13 @@ object Libs {
    }
 
    object MockServer {
-      private const val version = "5.11.2"
+      private const val version = "5.12.0"
       const val netty = "org.mock-server:mockserver-netty:$version"
       const val javaClient = "org.mock-server:mockserver-client-java:$version"
    }
 
-   object Coroutines {
-      private const val version = "1.4.3"
-      const val coreCommon = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
-      const val coreJvm = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$version"
+   object Fuel {
+      private const val version = "2.3.1"
+      const val core = "com.github.kittinunf.fuel:fuel:$version"
    }
-
-  object Fuel {
-    private const val version = "2.3.1"
-    const val core = "com.github.kittinunf.fuel:fuel:$version"
-  }
 }
