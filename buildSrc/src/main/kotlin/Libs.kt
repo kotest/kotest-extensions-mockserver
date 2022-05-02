@@ -11,7 +11,7 @@ object Libs {
    }
 
    object MockServer {
-      private const val version = "5.12.0"
+      private const val version = "5.13.2"
       const val netty = "org.mock-server:mockserver-netty:$version"
       const val javaClient = "org.mock-server:mockserver-client-java:$version"
    }
