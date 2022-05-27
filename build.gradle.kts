@@ -5,21 +5,19 @@ plugins {
    `java-library`
    signing
    `maven-publish`
-   kotlin("jvm").version(Libs.kotlinVersion)
+   kotlin("jvm") version "1.4.32"
 }
 
-apply(plugin = "org.jetbrains.kotlin.jvm")
-
-group = Libs.org
+group = "io.kotest.extensions"
 version = Ci.version
 
 dependencies {
-   implementation(Libs.Kotest.Api)
-   api(Libs.MockServer.netty)
-   api(Libs.MockServer.javaClient)
-   testImplementation(Libs.Kotest.Assertions)
-   testImplementation(Libs.Kotest.Junit5)
-   testImplementation(Libs.Fuel.core)
+   implementation(libs.kotest.framework.api)
+   api(libs.mockserver.netty)
+   api(libs.mockserver.client.java)
+   testImplementation(libs.kotest.assertions.core)
+   testImplementation(libs.kotest.runner.junit5)
+   testImplementation(libs.fuel)
 }
 
 tasks.named<Test>("test") {
@@ -33,6 +31,11 @@ tasks.named<Test>("test") {
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
    kotlinOptions.jvmTarget = "1.8"
+}
+
+java {
+   targetCompatibility = JavaVersion.VERSION_1_8
+   sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
 repositories {

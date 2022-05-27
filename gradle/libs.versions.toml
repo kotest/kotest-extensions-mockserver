@@ -1,0 +1,14 @@
+[versions]
+kotest = "4.6.1"
+mockserver = "5.13.2"
+fuel = "2.3.1"
+
+[libraries]
+fuel = { module = "com.github.kittinunf.fuel:fuel", version.ref = "fuel" }
+
+mockserver-client-java = { module = "org.mock-server:mockserver-client-java", version.ref = "mockserver" }
+mockserver-netty = { module = "org.mock-server:mockserver-netty", version.ref = "mockserver" }
+
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-framework-api = { module = "io.kotest:kotest-framework-api", version.ref = "kotest" }
