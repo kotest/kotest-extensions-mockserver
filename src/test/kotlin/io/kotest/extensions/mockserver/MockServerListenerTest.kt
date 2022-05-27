@@ -1,7 +1,6 @@
 package io.kotest.extensions.mockserver
 
 import com.github.kittinunf.fuel.httpGet
-import io.kotest.core.datatest.forAll
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
@@ -18,7 +17,7 @@ class MockServerListenerMultiPortTest : FunSpec({
   listener(MockServerListener(3030, 3031, 3032))
 
   test("Should create mock server in multiple ports") {
-    forAll("3030", "3031", "3032") {
+    listOf("3030", "3031", "3032").forEach {
       "http://localhost:$it".httpGet().response().second.statusCode shouldBe 404
     }
   }
