@@ -14,6 +14,10 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ## Changelog
 
+### 1.2.0
+
+* Added MockServerExtension variant to MockServerListener
+
 ### 1.1.2
 
 * Updated to mockserver 5.13.2
