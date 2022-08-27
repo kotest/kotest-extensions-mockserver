@@ -1,6 +1,6 @@
 [versions]
 kotest = "5.4.2"
-mockserver = "5.13.2"
+mockserver = "5.14.0"
 fuel = "2.3.1"
 
 [libraries]
