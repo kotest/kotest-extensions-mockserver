@@ -2,6 +2,7 @@ package io.kotest.extensions.mockserver
 
 import io.kotest.core.listeners.TestListener
 import io.kotest.core.spec.Spec
+import io.kotest.core.test.TestCase
 import org.mockserver.integration.ClientAndServer
 import org.mockserver.integration.ClientAndServer.startClientAndServer
 
@@ -10,22 +11,31 @@ import org.mockserver.integration.ClientAndServer.startClientAndServer
  * will be used (found via [mockServer])
  */
 class MockServerListener(
-  private vararg val port: Int = intArrayOf()
+   private vararg val port: Int = intArrayOf()
 ) : TestListener, AutoCloseable {
 
    // this has to be a var because MockServer starts the server as soon as you instantiate the instance :(
-   lateinit var mockServer: ClientAndServer
+   var mockServer: ClientAndServer? = null
 
+   // we can use beforeSpec if we're registering this in project configuration
    override suspend fun beforeSpec(spec: Spec) {
       super.beforeSpec(spec)
-      mockServer = startClientAndServer(*port.toTypedArray())
+      if (mockServer == null)
+         mockServer = startClientAndServer(*port.toTypedArray())
+   }
+
+   // we need beforeTest because registering as an inline listener will occur after beforeSpec is invoked
+   override suspend fun beforeTest(testCase: TestCase) {
+      super.beforeTest(testCase)
+      if (mockServer == null)
+         mockServer = startClientAndServer(*port.toTypedArray())
    }
 
    override suspend fun afterSpec(spec: Spec) {
-      mockServer.stop()
+      mockServer?.stop()
    }
 
    override fun close() {
-      mockServer.stop()
+      mockServer?.stop()
    }
 }
