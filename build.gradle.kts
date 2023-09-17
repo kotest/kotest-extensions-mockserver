@@ -5,7 +5,7 @@ plugins {
    `java-library`
    signing
    `maven-publish`
-   kotlin("jvm") version "1.6.21"
+   kotlin("jvm") version "1.8.21"
 }
 
 group = "io.kotest.extensions"
@@ -42,7 +42,7 @@ repositories {
    mavenLocal()
    mavenCentral()
    maven {
-      url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+      url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
    }
 }
 
