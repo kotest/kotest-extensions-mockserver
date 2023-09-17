@@ -14,6 +14,11 @@ Please create issues on the main kotest [board](https://github.com/kotest/kotest
 
 ## Changelog
 
+### 1.3.0
+
+* Fixed MockServerListener when used in an inline listener
+* Bumped to compile against Kotlin 1.8
+
 ### 1.2.1
 
 * Added MockServerExtension variant to MockServerListener
