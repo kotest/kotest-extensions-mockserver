@@ -1,5 +1,5 @@
 [versions]
-kotest = "5.7.2"
+kotest = "5.9.1"
 mockserver = "5.15.0"
 fuel = "2.3.1"
 
